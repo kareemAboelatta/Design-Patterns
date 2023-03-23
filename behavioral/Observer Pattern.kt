@@ -90,6 +90,15 @@ fun main() {
 }
 
 /**
+ * when we use
+ *  -when having an object that's needs to be observed by one or more observers.
+ *  -Decoupling observable and observer.
+ *  -Used in MVC pattern.
+ *
+ * */
+
+
+/**
  * '''Kotlin'''
  * PitFalls
  *  -Observable doesn't know which observer update its state
