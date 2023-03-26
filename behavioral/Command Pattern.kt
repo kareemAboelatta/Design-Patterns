@@ -1,11 +1,12 @@
 package behavioral
 
 
+
 class  Receiver(private val id : Int){
     private var money= 0
 
     fun sendMoney(money:Int){
-        this.money =money
+        this.money += money
         println("Receiver $id Total money = ${this.money}")
     }
 }
@@ -58,6 +59,24 @@ fun main() {
 
 
 }
+
+
+/**
+ * The Command Design Pattern is a behavioral design pattern that encapsulates a request as an object, thereby allowing clients to parameterize different requests, queue or log requests, and support undoable operations.
+
+In simpler terms, the Command Design Pattern provides a way to encapsulate a specific action or request in a separate object, which can be executed at a later time or even multiple times. This allows for more flexible and modular design, as the object can be created and executed without needing to know the specifics of the action being performed or the object that will execute it.
+
+The main components of the Command Design Pattern are:
+
+Command: defines an interface for executing an operation
+Concrete Command: implements the Command interface and binds to a receiver object
+Receiver: knows how to perform the operations associated with a request
+Invoker: sends the command to the receiver to execute the request
+Client: creates Concrete Command objects and sets its receiver
+By using the Command Design Pattern, it becomes easier to add new commands or modify existing ones without having to change the code that uses the commands. Additionally, it provides a way to queue or log commands for later use, as well as supporting undo and redo operations.
+ * */
+
+
 
 /**
  * when we use

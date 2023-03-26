@@ -63,6 +63,21 @@ fun main() {
 
 
 /**
+ * The Chain of Responsibility Design Pattern is a behavioral design pattern that allows a request to be passed through a chain of objects, each potentially handling the request or passing it on to the next object in the chain.
+
+In simpler terms, the Chain of Responsibility pattern provides a way to decouple the sender and receiver of a request by allowing multiple objects to handle the request without the sender having to know which object will handle it.
+
+The main components of the Chain of Responsibility Design Pattern are:
+
+Handler: defines an interface for handling requests and optionally provides a reference to the next handler in the chain
+Concrete Handler: implements the Handler interface and handles requests it is responsible for, passing on other requests to the next handler in the chain
+Client: creates and sends requests to the first handler in the chain
+By using the Chain of Responsibility Design Pattern, we can create flexible and extensible systems that can easily be modified without having to modify the sender or any of the handlers. Additionally, it allows for multiple objects to handle requests without any explicit coupling between them.
+
+One of the most common examples of the Chain of Responsibility pattern is the event propagation in the Document Object Model (DOM) of web browsers, where an event is first sent to the topmost element in the hierarchy and then propagated down the chain of nested elements until it is handled by a suitable event handler.
+ * */
+
+/**
  * PitFalls
  *  - Efficiency issues with long chains
  *  -No guarantee for request handling
