@@ -11,6 +11,7 @@ In this repository  i will practice on all Design Patterns by Kotlin .
 
 
 # :star:Behavioral
+* These patterns are concerned with communication between objects, defining how they interact and operate with one another.
 * How objects interact together 
 
 # :star:Creational Design Patterns:
