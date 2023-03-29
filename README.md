@@ -13,4 +13,11 @@ In this repository  i will practice on all Design Patterns by Kotlin .
 # :star:Behavioral
 * How objects interact together 
 
+# :star:Creational
+* How to create objects.
+
+# :star:Structural
+* How structural  of every object should be.
+
+
 ## In this repository i will impelement an example for  every pattern
