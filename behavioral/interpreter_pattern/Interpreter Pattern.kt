@@ -1,7 +1,5 @@
-package behavioral
-
+package behavioral.interpreter_pattern
 import java.util.StringTokenizer
-import java.util.regex.Pattern
 
 
 interface Expression {
@@ -43,10 +41,10 @@ class Interpreter {
             val hasSmallAboElatta = TerminalExpression("aboelatta")
 
 
-            val hasKamal = TerminalExpression("kamal")
+            val hasKamal = TerminalExpression("kamal")    // his father name is kamal
 
             val hasAboElatta1 = OrExpression(hasAbo, hasSmallAbo)
-            val hasAboElatta = OrExpression(hasAboElatta1, hasSmallAboElatta)
+            val hasAboElatta = OrExpression(hasAboElatta1, hasSmallAboElatta) // from aboElatta family
 
             return AndExpression(hasKamal, hasAboElatta)
         }
