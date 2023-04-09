@@ -147,8 +147,10 @@ fun main() {
  * representation
  *
  *
- * Company A store his employees in array list, Company B store his employees in array and Company C
- * store his employees in set or stack I don't care
+ * Company A store his employees in arrayList,
+ * Company B store his employees in normal array
+ * and Company C store his employees in set or stack
+ * I don't care
  * */
 
 

@@ -5,13 +5,11 @@ package behavioral
 class  Receiver(private val id : Int){
     private var money= 0
 
-    fun sendMoney(money:Int){
+    fun receiveMoney(money:Int){
         this.money += money
         println("Receiver $id Total money = ${this.money}")
     }
 }
-
-
 
 
 
@@ -21,14 +19,14 @@ interface Command {
 
 class SendMoneyCommand(private  val receiver: Receiver) : Command{
     override fun execute() {
-        receiver.sendMoney(500)
+        receiver.receiveMoney(500)
     }
 }
 
 class SendMoneyToAllCommand(private  val listOfReceiver: List<Receiver>) : Command{
     override fun execute() {
         listOfReceiver.forEach {receiver ->
-            receiver.sendMoney(500)
+            receiver.receiveMoney(500)
         }
     }
 }
