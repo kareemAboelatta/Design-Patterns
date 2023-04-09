@@ -112,7 +112,7 @@ fun main() {
 
     println()
     println("AirBus Requests Landing...")
-    airBus.requestLanding() //and AirTower we tell other airCrafts "an airCraft in the terminal now"
+    airBus.requestLanding() //and AirTower we tell other airCrafts "an airCraft in the terminal now."
     println("MiniAirBus Requests Landing...")
     miniAirBus.requestLanding()
 
