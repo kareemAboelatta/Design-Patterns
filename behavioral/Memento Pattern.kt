@@ -41,7 +41,7 @@ fun main() {
     //save Cmd+s too save my state
     careTaker.saveGame(game = game)
 
-    game.upgrade()  // my level increase but i forget to save my state
+    game.upgrade()//my level increased to 12 but i forget to save my state when im back (revert my current state will be removed)
 
     println("Before undo --> ${game.playerScore}")
 
