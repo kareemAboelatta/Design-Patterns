@@ -4,14 +4,22 @@ package behavioral
 interface AirCraft{
     fun notify(msg: String)
     fun requestLanding()
-    fun notifySuccess()
+    /**
+     * /// tell airPortTower that i will take of and let terminal empty
+     * */
+    fun notifyThisTakeOffSuccessfully()
 }
 
 interface AirPortTower{
     fun registerAirCraft(airCraft: AirCraft)
     fun requestLanding(airCraft: AirCraft)
-    fun notifySuccess()
+    fun notifyAnAirCraftTakeOffSuccessfully()
 }
+
+
+
+
+
 
 class AirBus : AirCraft{
     private lateinit var airPortTower: AirPortTower
@@ -29,9 +37,10 @@ class AirBus : AirCraft{
         airPortTower.requestLanding(this)
     }
 
-    override fun notifySuccess() {
-        airPortTower.notifySuccess()
+    override fun notifyThisTakeOffSuccessfully() {
+        airPortTower.notifyAnAirCraftTakeOffSuccessfully()
     }
+
 }
 
 class MiniAirBus : AirCraft{
@@ -50,15 +59,16 @@ class MiniAirBus : AirCraft{
         airPortTower.requestLanding(this)
     }
 
-    override fun notifySuccess() {
-        airPortTower.notifySuccess()
+    override fun notifyThisTakeOffSuccessfully() {
+        airPortTower.notifyAnAirCraftTakeOffSuccessfully()
     }
 }
 
 class NozhaTower : AirPortTower{
-    val registeredAirCrafts = arrayListOf<AirCraft>()
+    private val registeredAirCrafts = arrayListOf<AirCraft>()
     var isTerminalEmpty = true
-    val towerName:String = "Nozha AirTower"
+    private val towerName:String = "Nozha AirTower"
+
     override fun registerAirCraft(airCraft: AirCraft) {
         registeredAirCrafts.add(airCraft)
         println("$towerName : Register Success --> ${airCraft.javaClass.name}")
@@ -70,49 +80,56 @@ class NozhaTower : AirPortTower{
         }else{
             isTerminalEmpty = false
             airCraft.notify("$towerName okay you can land")
-            registeredAirCrafts.forEach {
+            registeredAirCrafts.forEach {     //tell all other airCrafts, an airCraft landed now
                 if (it!= airCraft){
-                    it.notify("$towerName : An aircraft will land soon   ")
+                    it.notify("$towerName : an airCraft in the terminal now ")
                 }
             }
         }
     }
 
-    override fun notifySuccess() {
+    override fun notifyAnAirCraftTakeOffSuccessfully() {
         isTerminalEmpty = true
-        registeredAirCrafts.forEach {
-            it.notify("Nozha Tower Tirminal is Empty now..")
+        registeredAirCrafts.forEach {  //tell all airCrafts,an airCraft takes off and  Terminal is Empty now
+            it.notify("Nozha Tower Terminal is Empty now..")
         }
     }
 
 }
 
 fun main() {
-    val airBus1 = AirBus()
-    val miniAirBus1 = MiniAirBus()
+
+
+    val airBus = AirBus()
+    val miniAirBus = MiniAirBus()
     val nozhaTower = NozhaTower()
 
 
     println("Register AirCrafts ....")
-    airBus1.setAirPortTower(nozhaTower)
-    miniAirBus1.setAirPortTower(nozhaTower)
-
-    println("AirBus1 Requests Landing...")
-    airBus1.requestLanding()
-    println("MiniAirBus1 Requests Landing...")
-    miniAirBus1.requestLanding()
+    airBus.setAirPortTower(nozhaTower)
+    miniAirBus.setAirPortTower(nozhaTower)
 
 
-    println("AirBus Landed Successfully ....")
-    airBus1.notifySuccess()
+    println()
+    println("AirBus Requests Landing...")
+    airBus.requestLanding() //and AirTower we tell other airCrafts "an airCraft in the terminal now"
+    println("MiniAirBus Requests Landing...")
+    miniAirBus.requestLanding()
 
+    println()
 
-    println("MiniAirBus1 Requests landing again ....")
-    miniAirBus1.requestLanding()
+    println("AirBus will take off Successfully ....")
+    airBus.notifyThisTakeOffSuccessfully()
 
+    println()
 
-    println("MiniAirBus1 Landed Successfully ....")
-    miniAirBus1.notifySuccess()
+    println("MiniAirBus Requests landing again ....")
+    miniAirBus.requestLanding()
+
+    println()
+
+    println("MiniAirBus will take off Successfully ....")
+    miniAirBus.notifyThisTakeOffSuccessfully()
 
 
 
