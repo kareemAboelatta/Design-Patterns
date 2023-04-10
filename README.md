@@ -21,8 +21,8 @@ In this repository  i will practice on all Design Patterns by Kotlin .
 * These patterns deal with object composition, and they help to identify relationships between different objects, How structural  of every object should be.
 
 # :star:Behavioral
-*:thumbsup: Chain of Responsibility Pattern: This pattern allows a group of objects to handle a request one by one until the request is processed successfully or no object can handle it.
-*:thumbsup: Command Pattern: This pattern encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+* :thumbsup: Chain of Responsibility Pattern: This pattern allows a group of objects to handle a request one by one until the request is processed successfully or no object can handle it.
+* :thumbsup: Command Pattern: This pattern encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
 *:thumbsup: Interpreter Pattern: This pattern defines a grammatical representation for a language and an interpreter to evaluate this grammar.
 *:thumbsup: Iterator Pattern: This pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
 *:thumbsup: Mediator Pattern: This pattern defines an object that encapsulates how a set of objects interact. This pattern promotes loose coupling by keeping objects from referring to each other explicitly.
