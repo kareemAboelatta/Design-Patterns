@@ -14,6 +14,7 @@ class MathOperation(private var strategy: MathStrategy) {
 // Strategy interface
 interface MathStrategy {
     fun doOperation(a: Int, b: Int): Int
+
 }
 
 // Concrete Strategy classes
