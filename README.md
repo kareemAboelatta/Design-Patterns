@@ -31,7 +31,7 @@ In this repository  i will practice on all Design Patterns by Kotlin .
 * :thumbsup: State Pattern: This pattern allows an object to alter its behavior when its internal state changes. The object will appear to change its class.
 * :thumbsup: Strategy Pattern: This pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 * :thumbsup: Template Method Pattern: This pattern defines the skeleton of an algorithm in a method, deferring some steps to subclasses. It lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
-* Visitor Pattern: This pattern represents an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.
+* :thumbsup: Visitor Pattern: This pattern represents an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.
 
 
 
