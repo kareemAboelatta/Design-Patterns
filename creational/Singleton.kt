@@ -19,3 +19,8 @@ fun main() {
 fun myFunction() {
     SingletonExample.doSomething()
 }
+
+
+/**
+ * Just we wanna create one instance (object) from specific class in a whole project.
+ * */
