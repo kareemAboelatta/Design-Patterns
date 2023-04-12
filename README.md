@@ -6,19 +6,19 @@ In this repository  i will practice on all Design Patterns by Kotlin .
 * Creational
 * Structural
 
-# Every type contain some patterns under it category
+# Every type contain some _patterns under it category
 ## <img src="https://user-images.githubusercontent.com/62241386/228518747-4e5eedb2-e8fc-498c-9f21-ef515e006aef.png" >
 
 
 # :star:Behavioral
-* These patterns are concerned with communication between objects, defining how they interact and operate with one another.
+* These _patterns are concerned with communication between objects, defining how they interact and operate with one another.
 , "How objects interact together "
 
 # :star:Creational Design Patterns:
-* These patterns are used to create objects in a way that is suitable for a particular situation. They deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
+* These _patterns are used to create objects in a way that is suitable for a particular situation. They deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
 
 # :star:Structural Design Patterns:
-* These patterns deal with object composition, and they help to identify relationships between different objects, How structural  of every object should be.
+* These _patterns deal with object composition, and they help to identify relationships between different objects, How _patterns.structural  of every object should be.
 
 # :smile:Behavioral
 ### :thumbsup: Chain of Responsibility Pattern:
