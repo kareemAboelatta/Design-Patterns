@@ -36,6 +36,18 @@ fun main() {
 
     println("-- Cloned Object --")
     jane.displayInfo()
+
+    println("-------- data class copy method")
+    val kareem = john.copy()
+    kareem.age=23
+
+
+    println("***********************************************************************************************")
+    println("-- Cloned Object jane--")
+    john.displayInfo()
+
+    println("-- Cloned Object kareem--")
+    kareem.displayInfo()
 }
 
 
