@@ -31,7 +31,7 @@ class Linux : OS{
 
 // Abstraction
 interface CommonUI{
-    var os:OS
+    var os:OS // acts as the "bridge" between the abstraction and implementation,
     fun click()
 }
 
