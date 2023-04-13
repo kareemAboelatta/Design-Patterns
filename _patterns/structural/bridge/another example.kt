@@ -50,11 +50,21 @@ class Button(override var os: OS) : CommonUI{
 
 
 fun main() {
-    val os =Windows()
-    val button = Button(os)
+
+    // Client can create many different views without change abstraction or implementation
+    val windows =Windows()
+    val button1 = Button(windows)
+
+    button1.click()
 
 
-    button.click()
+
+
+
+    val os =Mac()
+    val button2 = Button(os)
+
+    button2.click()
 
 
 
