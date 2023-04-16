@@ -1,7 +1,6 @@
 
 /**
- *
- * The Flyweight pattern is a structural design pattern that aims to reduce the memory usage and
+The Flyweight pattern is a structural design pattern that aims to reduce the memory usage and
 improve performance by sharing common parts of objects instead of duplicating them. It is commonly used in
 situations where a large number of objects need to be created and managed,and memory usage is a concern.
 
@@ -15,13 +14,19 @@ thereby reducing memory usage.
 
 The Flyweight pattern typically involves the following components:
 
-Flyweight: This is the interface or abstract class that defines the common interface for the flyweight objects. It usually contains methods that operate on the intrinsic state.
+-Flyweight: This is the interface or abstract class that defines the common interface for the flyweight objects.
+It usually contains methods that operate on the intrinsic state.
 
-Concrete Flyweight: This is the concrete implementation of the Flyweight interface, which represents the flyweight objects that can be shared. It usually contains the intrinsic state and implements the methods defined in the Flyweight interface.
+-Concrete Flyweight: This is the concrete implementation of the Flyweight interface,
+which represents the flyweight objects that can be shared. It usually contains the intrinsic state and implements the
 
-Flyweight Factory: This is a factory class that creates and manages the flyweight objects. It ensures that flyweight objects are shared and reused, and it may also handle the creation of new flyweight objects when needed.
+methods defined in the Flyweight interface.
 
-Client: This is the client code that uses the flyweight objects. It typically contains the extrinsic state that is unique to each object, and it may also interact with the flyweight factory to create or access flyweight objects.
+-Flyweight Factory: This is a factory class that creates and manages the flyweight objects.It ensures that
+flyweight objects are shared and reused, and it may also handle the creation of new flyweight objects when needed.
+
+-Client: This is the client code that uses the flyweight objects. It typically contains the extrinsic state
+that is unique to each object, and it may also interact with the flyweight factory to create or access flyweight objects.
  * */
 
 
