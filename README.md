@@ -67,18 +67,18 @@ In this repository  i will practice on all Design Patterns by Kotlin .
 
 # :smile: Structural design patterns:
 
-### :large_red_circle:Adapter Pattern: This pattern allows two incompatible interfaces to work together by creating a wrapper class that adapts the interface of one class to the interface of another.
+### :triangular_ruler:Adapter Pattern: This pattern allows two incompatible interfaces to work together by creating a wrapper class that adapts the interface of one class to the interface of another.
 
-Bridge Pattern: This pattern decouples an abstraction from its implementation so that the two can vary independently. It involves creating two separate hierarchies, one for the abstraction and one for the implementation, and using composition to link them together.
+### :triangular_ruler:Bridge Pattern: This pattern decouples an abstraction from its implementation so that the two can vary independently. It involves creating two separate hierarchies, one for the abstraction and one for the implementation, and using composition to link them together.
 
-Composite Pattern: This pattern allows you to treat a group of objects in the same way as you would treat a single object. It involves creating a tree-like structure of objects, where each object can be either a leaf node (with no children) or a composite node (with children).
+### :triangular_ruler:Composite Pattern: This pattern allows you to treat a group of objects in the same way as you would treat a single object. It involves creating a tree-like structure of objects, where each object can be either a leaf node (with no children) or a composite node (with children).
 
-Decorator Pattern: This pattern allows you to add behavior to an object dynamically at runtime, without affecting the behavior of other objects in the same class. It involves creating a wrapper class that mirrors the interface of the original class and adds additional functionality.
+### :triangular_ruler:Decorator Pattern: This pattern allows you to add behavior to an object dynamically at runtime, without affecting the behavior of other objects in the same class. It involves creating a wrapper class that mirrors the interface of the original class and adds additional functionality.
 
-Facade Pattern: This pattern provides a simplified interface to a complex system by encapsulating its various components behind a single interface. It involves creating a class that acts as a front-end for a set of classes or subsystems.
+### :triangular_ruler:Facade Pattern: This pattern provides a simplified interface to a complex system by encapsulating its various components behind a single interface. It involves creating a class that acts as a front-end for a set of classes or subsystems.
 
-Flyweight Pattern: This pattern allows you to share objects that are frequently used in order to reduce memory usage. It involves creating a factory class that manages a pool of shared objects and returns them as needed.
+### :triangular_ruler:Flyweight Pattern: This pattern allows you to share objects that are frequently used in order to reduce memory usage. It involves creating a factory class that manages a pool of shared objects and returns them as needed.
 
-Proxy Pattern: This pattern provides a placeholder for another object in order to control access to it. It involves creating a class that acts as a stand-in for another object and delegates requests to it as needed, while also adding additional functionality if necessary.
+### :triangular_ruler:Proxy Pattern: This pattern provides a placeholder for another object in order to control access to it. It involves creating a class that acts as a stand-in for another object and delegates requests to it as needed, while also adding additional functionality if necessary.
 
 ## In this repository i will impelement an example for  every pattern
