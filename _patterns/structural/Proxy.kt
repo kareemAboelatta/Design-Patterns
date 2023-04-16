@@ -28,6 +28,8 @@ The Proxy pattern can be used in various scenarios, such as:
  * */
 
 
+
+//Protection Proxy.
 data class Employ(val name: String, val securityLevel: Int)
 
 
@@ -63,16 +65,11 @@ fun main() {
     val manager = Employ(name = "Kareem", securityLevel = 17)
 
 
-
-
     println("-------------Without proxy --------------")
 
     // keda ha5ly ay 7d y3mel access to internet directly
     RealInternetConnection().grantInternetAccess(employ = employ)
     RealInternetConnection().grantInternetAccess(employ = manager)
-
-
-
 
 
     println("-------------With proxy--------------")
@@ -83,5 +80,105 @@ fun main() {
     ProxyInternet().grantInternetAccess(employ = manager)
 }
 
+/*
+Virtual Proxy: The Proxy acts as a placeholder for expensive or resource-intensive objects, delaying their
+creation or loading until they are actually needed, in order to optimize performance and resource usage.
+*/
 
 
+/*
+* // Subject
+interface Image {
+    fun display()
+}
+
+// RealSubject
+class RealImage(private val fileName: String) : Image {
+    init {
+        loadImageFromDisk()
+    }
+
+    override fun display() {
+        println("Displaying image: $fileName")
+    }
+
+    private fun loadImageFromDisk() {
+        println("Loading image from disk: $fileName")
+    }
+}
+
+// Proxy
+class ImageProxy(private val fileName: String) : Image {
+    private var realImage: RealImage? = null
+
+    override fun display() {
+        if (realImage == null) {
+            realImage = RealImage(fileName)
+        }
+        realImage?.display()
+    }
+}
+
+fun main() {
+    // Client uses the Proxy to access the image
+    val image = ImageProxy("image.jpg")
+    image.display()
+
+    // RealImage is only loaded when display() is called
+    // Output: Loading image from disk: image.jpg
+    //         Displaying image: image.jpg
+}
+
+* */
+
+
+
+
+
+/*
+Protection Proxy: The Proxy controls access to a sensitive or protected object,
+enforcing access control rules or permissions before allowing clients to access the object.
+*/
+
+
+/*
+interface Image {
+    fun display()
+}
+
+// RealSubject
+class RealImage(private val fileName: String) : Image {
+    override fun display() {
+        println("Displaying $fileName")
+    }
+}
+
+// Proxy
+class ImageProxy(private val fileName: String) : Image {
+    private var realImage: RealImage? = null
+
+    override fun display() {
+        if (realImage == null) {
+            // Perform remote loading of the image
+            println("Loading image remotely: $fileName")
+            realImage = RealImage(fileName)
+        }
+        realImage?.display()
+    }
+}
+
+fun main() {
+    // Creating a proxy for the image
+    val imageProxy = ImageProxy("image.jpg")
+
+    // Displaying the image
+    imageProxy.display()
+
+    // Image is loaded remotely and displayed
+    // Displaying the image again
+    imageProxy.display()
+
+    // Image is already loaded, so it will be displayed directly from the RealImage object
+}
+
+* */
