@@ -1,49 +1,33 @@
-package _patterns.behavioral
+package _patterns.behavioral.visitor_pattern
 
+
+//-Element: an interface or an abstract class that defines an accept() method that accepts a visitor.
 interface TaxHolder{
-    fun accept(visitor: VisitorA)
+    fun accept(visitor: Visitor)
 }
 
-class House: TaxHolder{
-    override fun accept(visitor: VisitorA) {
-        visitor.visit(this)
-    }
-
-}
-
-class Factory: TaxHolder{
-    override fun accept(visitor: VisitorA) {
-        visitor.visit(this)
-    }
-
-}
-
-class Company : TaxHolder{
-    override fun accept(visitor: VisitorA) {
+//-Concrete Element: implements the Element interface and provides an implementation for the accept() method.
+class House: TaxHolder {
+    override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }
 }
 
-
-
-class TaxCollectorCompany : TaxHolder {
-    var taxHolders= arrayListOf<TaxHolder>()
-
-    override fun accept(visitor: VisitorA) {
-        taxHolders.forEach {
-            it.accept(visitor)
-        }
+class Factory: TaxHolder {
+    override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }
+}
 
+class Company : TaxHolder {
+    override fun accept(visitor: Visitor) {
+        visitor.visit(this)
+    }
 }
 
 
 
-
-
-
-
+//-Visitor: an interface or an abstract class that defines the operations to be performed on elements of the object structure.
 interface Visitor{
     fun visit(company: Company)
     fun visit(house: House)
@@ -51,8 +35,8 @@ interface Visitor{
     fun visit(taxCollectorCompany: TaxCollectorCompany)
 }
 
-
-class VisitorA: Visitor{
+//implements the Visitor interface and provides an implementation for each operation defined in the Visitor interface.
+class VisitorA: Visitor {
     var taxes=0
     override fun visit(company: Company) {
         taxes +=5
@@ -75,17 +59,35 @@ class VisitorA: Visitor{
 
 }
 
+
+
+class TaxCollectorCompany : TaxHolder {
+    var taxHolders= arrayListOf<TaxHolder>()
+
+    override fun accept(visitor: Visitor) {
+        taxHolders.forEach {
+            it.accept(visitor)
+        }
+        visitor.visit(this)
+    }
+
+}
+
+
+
+
+
 fun main() {
     //Init Tax Holder
-    var house = House()
-    var company = Company()
-    var factory = Factory()
+    val house = House()
+    val company = Company()
+    val factory = Factory()
 
-    var listOfTaxHolder = arrayListOf(house,company,factory)
+    val listOfTaxHolder = arrayListOf(house,company,factory)
 
     //Init Tax Collector Company and VisitorA
-    var taxCollectorCompany = TaxCollectorCompany()
-    var visitor = VisitorA()
+    val taxCollectorCompany = TaxCollectorCompany()
+    val visitor = VisitorA()
 
     taxCollectorCompany.taxHolders.addAll(listOfTaxHolder)
 
@@ -107,15 +109,15 @@ The Visitor pattern consists of the following components:
 
 -Visitor: an interface or an abstract class that defines the operations to be performed on elements of the object
 structure.
+
 -Concrete Visitor: implements the Visitor interface and provides an implementation for each operation defined in
 the Visitor interface.
 
 -Element: an interface or an abstract class that defines an accept() method that accepts a visitor.
+
 -Concrete Element: implements the Element interface and provides an implementation for the accept() method.
 
 -Object Structure: a collection of objects that provides the elements to be visited.
-
-
 
 
 The Visitor pattern provides a way to add new operations to an object structure without changing the classes themselves.

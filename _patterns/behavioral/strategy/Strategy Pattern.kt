@@ -1,4 +1,4 @@
-package _patterns.behavioral
+package _patterns.behavioral.strategy
 
 
 // Strategy interface

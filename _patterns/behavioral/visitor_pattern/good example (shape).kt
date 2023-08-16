@@ -1,14 +1,24 @@
 package _patterns.behavioral.visitor_pattern
 
-interface ShapeVisitor {
-    fun visitCircle(circle: Circle)
-    fun visitRectangle(rectangle: Rectangle)
-    fun visitTriangle(triangle: Triangle)
-}
+
+
+
+/**
+ * Separate Algorithm (Area Calculation):
+In the example, we want to calculate the area of each shape. Instead of adding the area calculation method directly to
+each shape class (which would tightly couple the area calculation logic with the shape classes),
+we create a separate ShapeVisitor interface. This interface declares a set of visit methods,
+one for each shape type, representing the algorithm or operation we want to perform on the shape.
+ * */
+
+
 
 abstract class Shape {
     abstract fun accept(visitor: ShapeVisitor)
 }
+
+
+
 
 class Circle(val radius: Double) : Shape() {
     override fun accept(visitor: ShapeVisitor) {
@@ -27,6 +37,14 @@ class Triangle(val base: Double, val height: Double) : Shape() {
         visitor.visitTriangle(this)
     }
 }
+
+
+interface ShapeVisitor {
+    fun visitCircle(circle: Circle)
+    fun visitRectangle(rectangle: Rectangle)
+    fun visitTriangle(triangle: Triangle)
+}
+
 
 class AreaVisitor : ShapeVisitor {
     var totalArea = 0.0

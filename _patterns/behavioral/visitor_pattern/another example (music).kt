@@ -5,26 +5,23 @@ package _patterns.behavioral.visitor_pattern
  * Let's say you are developing a music library application that allows users to import and manage their music collection.
  * You have implemented a class hierarchy for different types of music files, such as MP3, WAV, FLAC, etc.,
  * each represented by a separate class.
- * You also have a class hierarchy for music metadata, such as artist, album,
- * and song title, each represented by a separate class.
+ * You also have a class hierarchy for music metadata, such as artist, album, and song title, each represented by a separate class.
 
 You now want to implement a feature that allows users to export their music collection to different formats,
-such as CSV, JSON, and XML. Instead of implementing a separate export method in each music file and metadata class,
-you decide to use the Visitor pattern to achieve this.
+such as CSV, JSON, and XML.
+Instead of implementing a separate export method in each music file and metadata class, you decide to use the Visitor pattern to achieve this.
  * */
 
 interface MusicVisitor {
     fun visit(mp3: MP3)
     fun visit(wav: WAV)
     fun visit(flac: FLAC)
+
+
     fun visit(artist: Artist)
     fun visit(album: Album)
     fun visit(song: Song)
 }
-
-
-
-
 
 
 class CSVVisitor : MusicVisitor {
@@ -104,11 +101,6 @@ class XMLVisitor : MusicVisitor {
         println("Exporting song metadata to XML")
     }
 }
-
-
-
-
-
 
 
 interface Music {
