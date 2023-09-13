@@ -7,7 +7,7 @@ package _patterns.behavioral.strategy
  * Android Programming scenario
 
 
-Suppose you are developing a weather app that provides users with the current temperature of their location.
+Suppose you are developing a (weather app) that provides users with the current temperature of their location.
 
 The app can use different data sources to get the temperature, such as GPS, weather APIs, or manual entry.
 
@@ -17,9 +17,9 @@ You can use the Strategy Design Pattern to implement this feature in the followi
 -Define a Context class called TemperatureContext that holds a reference to the current strategy and provides
 an interface to the client to interact with the strategy.
 
-The TemperatureContext class will have a method called getTemperature()that will be used to get the current temperature.
+The TemperatureContext class will have a method called getTemperature() that will be used to get the current temperature.
 
--Define a Strategy interface called TemperatureStrategy that defines the algorithm that the context will use.
+- Define a Strategy interface called TemperatureStrategy that defines the algorithm that the context will use.
 The TemperatureStrategy interface will have a method called getTemperature() that will be
 implemented by the concrete strategies.
 

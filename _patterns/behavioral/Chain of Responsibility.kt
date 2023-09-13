@@ -83,7 +83,7 @@ One of the most common examples of the Chain of Responsibility pattern is the ev
 /**
  * PitFalls
  *  - Efficiency issues with long chains
- *  -No guarantee for request handling
+ *  - No guarantee for request handling
  *
  * */
 
