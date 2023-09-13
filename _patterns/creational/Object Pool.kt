@@ -151,7 +151,7 @@ private val mediaPlayerPool = mutableListOf<MediaPlayer>()
     }
 }
 
-fun main() {
+fun _patterns.creational.main() {
     val mediaPlayerPool = MediaPlayerPool(5)
 
     // Get MediaPlayers from the pool

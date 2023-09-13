@@ -7,41 +7,60 @@ package _patterns.creational
  *  they are actually required, and not unnecessarily in advance.
  * */
 
-/**
- *
-public class DatabaseHelper {
-    private SQLiteDatabase database;
 
-    public SQLiteDatabase getDatabase() {
-        // Lazy initialization of database instance
-        if (database == null) {
-            // Perform expensive database initialization
-            System.out.println("Initializing database...");
-            database = SQLiteDatabase.openDatabase("my_database.db", null, SQLiteDatabase.CREATE_IF_NECESSARY);
-         }
-        return database;
+
+class ExpensiveResource {
+    init {
+        // Simulate a resource-intensive initialization process
+        println("Initializing ExpensiveResource...")
     }
 
-    public void performDatabaseOperation() {
-        // Use the database object
-        System.out.println("Performing database operation...");
-        // ...
-    }
-
-}
-
-public class Main {
-    public static void main(String[] args) {
-        DatabaseHelper dbHelper = new DatabaseHelper();
-
-        // Database is not initialized yet
-        System.out.println("Performing some other operations...");
-
-        // Database is initialized only when needed
-        dbHelper.performDatabaseOperation();
+    fun performOperation() {
+        println("Performing an operation with ExpensiveResource")
     }
 }
 
- *
- *
- * */
+
+
+fun main() {
+    val lazyResource: ExpensiveResource by lazy {
+        println("Creating ExpensiveResource on first access...")
+        ExpensiveResource()
+    }
+
+    // ExpensiveResource is not initialized until this line is reached
+    println("Before accessing ExpensiveResource")
+
+    // Access the resource, which triggers its initialization
+    lazyResource.performOperation()
+
+    // Access the resource again, it won't be re-initialized
+    lazyResource.performOperation()
+}
+
+
+
+//old way
+class LazyResourceHolder {
+    private var initialized = false
+    private var resource: ExpensiveResource? = null
+
+    fun getLazyResource(): ExpensiveResource {
+        if (!initialized) {
+            println("Creating ExpensiveResource on first access...")
+            resource = ExpensiveResource()
+            initialized = true
+        }
+        return resource!!
+    }
+}
+
+
+
+
+
+
+
+
+
+

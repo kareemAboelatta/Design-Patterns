@@ -64,7 +64,7 @@ fun main() {
 
 In simpler terms, the Command Design Pattern provides a way to encapsulate a specific action or request in a separate object, which can be executed at a later time or even multiple times. This allows for more flexible and modular design, as the object can be created and executed without needing to know the specifics of the action being performed or the object that will execute it.
 
-The main components of the Command Design Pattern are:
+The _patterns.creational.main components of the Command Design Pattern are:
 
 Command: defines an interface for executing an operation
 Concrete Command: implements the Command interface and binds to a receiver object

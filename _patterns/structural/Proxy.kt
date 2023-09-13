@@ -6,7 +6,7 @@ package _patterns.structural
  * access to it or to add additional functionality. It allows for a level of indirection when accessing an object,
  * providing an additional layer of abstraction.
 
-The Proxy pattern typically involves three main components:
+The Proxy pattern typically involves three _patterns.creational.main components:
 
 -Subject: This is the interface or the common interface that the Proxy and RealSubject (the actual object being proxied) implement.
 It defines the operations that both the Proxy and RealSubject must implement.
@@ -119,7 +119,7 @@ class ImageProxy(private val fileName: String) : Image {
     }
 }
 
-fun main() {
+fun _patterns.creational.main() {
     // Client uses the Proxy to access the image
     val image = ImageProxy("image.jpg")
     image.display()
@@ -167,7 +167,7 @@ class ImageProxy(private val fileName: String) : Image {
     }
 }
 
-fun main() {
+fun _patterns.creational.main() {
     // Creating a proxy for the image
     val imageProxy = ImageProxy("image.jpg")
 

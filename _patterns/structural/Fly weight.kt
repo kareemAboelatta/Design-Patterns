@@ -4,7 +4,7 @@ The Flyweight pattern is a structural design pattern that aims to reduce the mem
 improve performance by sharing common parts of objects instead of duplicating them. It is commonly used in
 situations where a large number of objects need to be created and managed,and memory usage is a concern.
 
-The main idea behind the Flyweight pattern is to separate the intrinsic(جوهرية) state (i.e., shared state)
+The _patterns.creational.main idea behind the Flyweight pattern is to separate the intrinsic(جوهرية) state (i.e., shared state)
 from the extrinsic(خارجية) state (i.e., unique state) of objects.
 
 The intrinsic state is the part of the object that can be shared among multiple objects,

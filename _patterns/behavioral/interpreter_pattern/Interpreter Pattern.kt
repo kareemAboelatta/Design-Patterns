@@ -62,7 +62,7 @@ fun main() {
 //same program
 /*
 
-fun main() {
+fun _patterns.creational.main() {
     val name = "swa kamal mohamed ahmed ahmed Aboelatta"
     val pattern = Pattern.compile(".*kamal.*(aboelatta|aboelatta|aboelatta)$", Pattern.CASE_INSENSITIVE)
 

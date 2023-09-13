@@ -68,7 +68,7 @@ fun main() {
 
 In simpler terms, the Chain of Responsibility pattern provides a way to decouple the sender and receiver of a request by allowing multiple objects to handle the request without the sender having to know which object will handle it.
 
-The main components of the Chain of Responsibility Design Pattern are:
+The _patterns.creational.main components of the Chain of Responsibility Design Pattern are:
 
 Handler: defines an interface for handling requests and optionally provides a reference to the next handler in the chain
 Concrete Handler: implements the Handler interface and handles requests it is responsible for, passing on other requests to the next handler in the chain
