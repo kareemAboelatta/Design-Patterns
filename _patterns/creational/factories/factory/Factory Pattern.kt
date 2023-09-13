@@ -18,6 +18,8 @@ class Rectangle : Shape {
     }
 }
 
+
+
 //- Factory:
 class ShapeFactory {
     fun createShape(type: String): Shape? {
@@ -34,6 +36,7 @@ fun main() {
 
     val shape1 = shapeFactory.createShape("circle")
     shape1?.draw() // Output: Drawing a circle
+    println("shape1 is a circle ? ::: ${(shape1 is Circle)}")
 
     val shape2 = shapeFactory.createShape("rectangle")
     shape2?.draw() // Output: Drawing a rectangle

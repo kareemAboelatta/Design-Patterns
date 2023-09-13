@@ -1,11 +1,9 @@
+package _patterns.creational
+
 data class Sandwich(
-    val bread: String,
-    val meat: String,
-    val cheese: String,
-    val veggies: List<String>,
-    val sauce: String
+    val bread: String, val meat: String, val cheese: String, val veggies: List<String>, val sauce: String
 ) {
-    // Additional properties and methods specific to Sandwich
+    // Additional properties and methods specific to _patterns.creational.Sandwich
     // ...
 }
 
@@ -51,19 +49,13 @@ class SandwichBuilder {
 
 // Client
 fun main() {
-    val sandwich = SandwichBuilder()
-        .setMeat("Turkey")
-        .setCheese("Swiss")
-        .addVeggies(listOf("Lettuce", "Tomato", "Onion"))
-        .setSauce("Mayonnaise")
-        .build()
+    val sandwich = SandwichBuilder().setBread("French Bread").setMeat("Turkey").setCheese("Swiss")
+        .addVeggies(listOf("Lettuce", "Tomato", "Onion")).setSauce("Mayonnaise").addVeggies(listOf("Tomato")).build()
 
 
-    // Use the built Sandwich object
+    // Use the built _patterns.creational.Sandwich object
     println(sandwich)
 }
-
-
 
 
 /**
@@ -76,40 +68,36 @@ fun main() {
  *
  *
 Some key components of the Builder pattern are:
-    -Product: Represents the object being built, typically a complex object with multiple properties or configurations.
+-Product: Represents the object being built, typically a complex object with multiple properties or configurations.
 
-    -Builder: Represents the builder class that is responsible for constructing the product.It contains methods for
-             setting or configuring different properties of the product, and it may have a method for returning the final built object.
+-Builder: Represents the builder class that is responsible for constructing the product.It contains methods for
+setting or configuring different properties of the product, and it may have a method for returning the final built object.
 
-    -Director (optional): Represents an optional class that provides a higher-level interface for using the builder.
-        It may be responsible for coordinating the construction process and calling the appropriate methods on the builder
-        class to create the product. In some cases, the client may directly interact with the builder
-        without the need for a director class.
+-Director (optional): Represents an optional class that provides a higher-level interface for using the builder.
+It may be responsible for coordinating the construction process and calling the appropriate methods on the builder
+class to create the product. In some cases, the client may directly interact with the builder
+without the need for a director class.
 
-    -Client: Represents the class or code that uses the builder to create objects. The client typically interacts with
-    the builder by calling its methods to set or configure the properties of the product, and then calling the appropriate
-    method to retrieve the final built object.
+-Client: Represents the class or code that uses the builder to create objects. The client typically interacts with
+the builder by calling its methods to set or configure the properties of the product, and then calling the appropriate
+method to retrieve the final built object.
  * */
-
-
-
-
 
 
 /**
  * Android Programming scenario
 
 ---> when want to show alertDialog in android maybe i wanna add some widget and in some cases i don't want it
-     for example I don't wanna to add a message in  alertDialog
+for example I don't wanna to add a message in  alertDialog
 
-    //client
-   fun showAlertDialog() {
-      val alertDialog = AlertDialogBuilder()
-        .setTitle("Alert!")
-        .setMessage("This is an example of AlertDialog using Builder pattern.") in this case i will remove this line.
-        .setPositiveButton("OK") { dialog, which -> /* Handle positive button click */ }
-        .setNegativeButton("Cancel") { dialog, which -> /* Handle negative button click */ }
-        .create()
+//client
+fun showAlertDialog() {
+val alertDialog = AlertDialogBuilder()
+.setTitle("Alert!")
+.setMessage("This is an example of AlertDialog using Builder pattern.") in this case i will remove this line.
+.setPositiveButton("OK") { dialog, which -> /* Handle positive button click */ }
+.setNegativeButton("Cancel") { dialog, which -> /* Handle negative button click */ }
+.create()
 
 // Show the created AlertDialog
 alertDialog.show()

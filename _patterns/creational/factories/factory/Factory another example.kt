@@ -16,12 +16,19 @@ class MacOSButton : Button {
     }
 }
 
+
+
+
+
+
+
+enum class PlatformType{ WINDOWS,MAC}
 class ButtonFactory {
 
-    fun createButton(platform: String): Button {
+    fun createButton(platform: PlatformType): Button {
         return when (platform) {
-            "Windows" -> WindowsButton()
-            "MacOS" -> MacOSButton()
+            PlatformType.WINDOWS -> WindowsButton()
+            PlatformType.MAC  -> MacOSButton()
             else -> throw IllegalArgumentException("Invalid platform: $platform")
         }
     }
@@ -30,9 +37,9 @@ class ButtonFactory {
 fun main() {
     val buttonFactory = ButtonFactory()
 
-    val windowsButton = buttonFactory.createButton("Windows")
+    val windowsButton = buttonFactory.createButton(PlatformType.MAC)
     windowsButton.display() // Output: Rendering a Windows style button.
 
-    val macOSButton = buttonFactory.createButton("MacOS")
+    val macOSButton = buttonFactory.createButton(PlatformType.WINDOWS)
     macOSButton.display() // Output: Rendering a MacOS style button.
 }
