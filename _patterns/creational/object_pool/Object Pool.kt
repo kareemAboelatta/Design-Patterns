@@ -12,7 +12,14 @@ package _patterns.creational
  * Here's an example of the Object Pool pattern in Kotlin, using a scenario where we have a Connection class that
  * represents a database connection, and we want to manage a pool of Connection objects to avoid the overhead of
  * creating and closing database.
+ *
+ *
+ * and remember Thread pool Concept work on this idea
  * */
+
+
+
+
 class Connection {
     // Simulating a database connection
     fun connect() {
@@ -40,12 +47,12 @@ class ConnectionPool(private val maxSize: Int) {
     }
 
     fun getConnection(): Connection {
-        if (connections.isEmpty()) {
+        return if (connections.isEmpty()) {
             println("No connections available. Creating a new connection.")
-            return Connection()
+            Connection()
         } else {
             println("Getting a connection from the pool.")
-            return connections.removeAt(0)
+            connections.removeAt(0)
         }
     }
 
