@@ -40,6 +40,8 @@ fun main() {
     println("-------- data class copy method")
     val kareem = john.copy()
     kareem.age=23
+    kareem.firstName="Kareem"
+    kareem.lastName="Aboelatta"
 
 
     println("***********************************************************************************************")
