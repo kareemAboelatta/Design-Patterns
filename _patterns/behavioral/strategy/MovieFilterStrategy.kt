@@ -30,9 +30,9 @@ class RateFilter(private val selectedRate: Double) : FilterStrategy {
 
 class MovieFilterContext(private var movies: List<Movie>) {
 
-    fun applyFilter(filterStrategy: FilterStrategy): List<Movie> {
-        movies = filterStrategy.applyFilter(movies)
-        return movies
+    fun applyFilter(filterStrategy: FilterStrategy, moviesFilteredBefore: List<Movie> = movies): List<Movie> {
+        return filterStrategy.applyFilter(moviesFilteredBefore)
+
     }
 }
 
@@ -72,18 +72,19 @@ fun main() {
     // Apply filters based on user selections
     val selectedGenre = Genre.ACTION
     val selectedYear = 1994
-    val selectedRate = 9.0
+    val selectedRate = 8.0
 
     val genreFilter = GenreFilter(selectedGenre)
     val yearFilter = YearFilter(selectedYear)
     val rateFilter = RateFilter(selectedRate)
 
-    val filteredMovies = filterContext.applyFilter(rateFilter)
+    val filteredMoviesByYear = filterContext.applyFilter(yearFilter)
+    val filteredMoviesByYearAndRate = filterContext.applyFilter(rateFilter)
 
 
     // Display the filtered list of movies
     println("Filtered Movies:")
-    filteredMovies.forEach { movie ->
+    filteredMoviesByYearAndRate.forEach { movie ->
         println("${movie.title} (${movie.releaseYear}) - Rating: ${movie.rating} - Genres: ${movie.genres.joinToString()}")
     }
 }
