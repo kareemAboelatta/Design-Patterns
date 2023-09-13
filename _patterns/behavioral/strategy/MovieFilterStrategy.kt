@@ -57,8 +57,12 @@ fun fetchMoviesFromServer(): List<Movie> {
     val movie14 = Movie("The Lord of the Rings", listOf(Genre.ACTION, Genre.ADVENTURE, Genre.FANTASY), 2001, 8.8)
     val movie15 = Movie("The Silence of the Lambs", listOf(Genre.CRIME, Genre.DRAMA, Genre.THRILLER), 1991, 8.6)
 
-    movies.addAll(listOf(movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10,
-        movie11, movie12, movie13, movie14, movie15))
+    movies.addAll(
+        listOf(
+            movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10,
+            movie11, movie12, movie13, movie14, movie15
+        )
+    )
 
     // Add more movies as needed...
 
