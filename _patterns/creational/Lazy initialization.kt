@@ -22,7 +22,7 @@ class ExpensiveResource {
 
 
 
-fun main() {
+fun main1() {
     val lazyResource: ExpensiveResource by lazy {
         println("Creating ExpensiveResource on first access...")
         ExpensiveResource()
@@ -55,10 +55,41 @@ class LazyResourceHolder {
     }
 }
 
+class LazyHolder<T>(private val initializer: () -> T) {
+    private var initialized = false
+
+    private var resource: T? = null
+
+    fun getLazyResource(): T {
+        if (!initialized) {
+            println("Creating ExpensiveResource on first access...")
+            resource = initializer()
+            initialized = true
+        }
+        return resource!!
+    }
+
+    var isInitialized = false
+        get() = initialized
+        private set
+}
 
 
 
+// Usage Example
+class MyExpensiveResource {
+    init {
+        println("ExpensiveResource Created!")
+    }
+}
 
+fun main() {
+    val lazyHolder = LazyHolder { ExpensiveResource() } // Pass a lambda to create the instance
+    val resource1 = lazyHolder.getLazyResource() // Creates the instance
+    val resource2 = lazyHolder.getLazyResource() // Reuses the existing instance
+
+    println(resource1 === resource2) // Should print true, confirming lazy initialization
+}
 
 
 

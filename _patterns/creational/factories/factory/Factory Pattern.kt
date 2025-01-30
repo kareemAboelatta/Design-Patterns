@@ -71,10 +71,8 @@ Some key components of the Factory Design Pattern are:
 - Factory: The class responsible for creating objects of different types based on some conditions.
   It usually contains a factory method or methods that return instances of the concrete products based on input
   parameters or conditions.
-
-
  * */
-
+const val Factory = "Factory"
 
 
 

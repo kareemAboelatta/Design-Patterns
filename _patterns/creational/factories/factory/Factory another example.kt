@@ -18,10 +18,6 @@ class MacOSButton : Button {
 
 
 
-
-
-
-
 enum class PlatformType{ WINDOWS,MAC}
 class ButtonFactory {
 
