@@ -1,4 +1,4 @@
-package _patterns.creational
+package _patterns.creational.object_pool
 
 /**
  * The Object Pool pattern is a _patterns.creational design pattern that manages a pool of objects and allows clients to
@@ -158,7 +158,7 @@ private val mediaPlayerPool = mutableListOf<MediaPlayer>()
     }
 }
 
-fun _patterns.creational.main() {
+fun _patterns.creational.object_pool.main() {
     val mediaPlayerPool = MediaPlayerPool(5)
 
     // Get MediaPlayers from the pool

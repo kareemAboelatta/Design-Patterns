@@ -68,7 +68,7 @@ fun main() {
 
 In simpler terms, the Observer pattern provides a way to establish a one-to-many dependency between objects, so that when the state of one object changes, all its dependents are automatically notified and updated.
 
-The _patterns.creational.main components of the Observer Design Pattern are:
+The _patterns.creational.object_pool.main components of the Observer Design Pattern are:
 
 Subject: maintains a list of observers and notifies them of any changes in its state
 Observer: defines an interface for objects that should be notified of changes in the subject's state

@@ -14,7 +14,7 @@ It promotes loose coupling between the client and the subsystem, as the client i
 which in turn interacts with the subsystem on behalf of the client.
 
 Some key components of the Facade pattern are:
--Facade: This is the _patterns.creational.main class that provides a simplified interface for the clients to interact with the complex subsystem.
+-Facade: This is the _patterns.creational.object_pool.main class that provides a simplified interface for the clients to interact with the complex subsystem.
          It knows how to delegate client requests to the appropriate subsystem components,
          and it may also provide additional higher-level functionality.
 
