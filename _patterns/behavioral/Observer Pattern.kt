@@ -1,92 +1,65 @@
 package _patterns.behavioral
 
-abstract class Subject{
-    private var  observers = ArrayList<Observer>()
+// 1) Define an Observer interface
+interface Observer {
+    fun update(data: String)
+}
 
+// 2) Define a Subject interface (the “observable”)
+interface Subject {
+    fun registerObserver(observer: Observer)
+    fun removeObserver(observer: Observer)
+    fun notifyObservers()
+}
 
+// 3) A concrete Subject that holds data and notifies observers
+class NewsPublisher : Subject {
+    private val observers = mutableListOf<Observer>()
+    private var latestNews: String = "No news yet"
 
-    abstract  fun setState(state:String)
-    abstract  fun getState(): String
+    fun setNews(news: String) {
+        latestNews = news
+        notifyObservers()  // Whenever data changes, notify observers
+    }
 
-    fun attach(observer: Observer){
+    override fun registerObserver(observer: Observer) {
         observers.add(observer)
     }
 
-    fun detach(observer: Observer){
+    override fun removeObserver(observer: Observer) {
         observers.remove(observer)
     }
 
-    fun notifyAllObservers(){
-        observers.forEach {observer->
-            observer.update()
+    override fun notifyObservers() {
+        observers.forEach { observer ->
+            observer.update(latestNews)
         }
     }
 }
 
-
-abstract class Observer{
-    lateinit var subject: Subject
-    abstract fun update()
+// 4) Concrete Observer
+class NewsReader(val name: String) : Observer {
+    override fun update(data: String) {
+        println("$name got the news update: $data")
+    }
 }
 
-
-
-class ElliFeha : Subject(){
-    private var state = "Silent"
-
-    override fun setState(state: String) {
-        this.state =state
-        notifyAllObservers()
-    }
-    override fun getState(): String {
-        return  state
-    }
-
-}
-
-
-
-class Player(subject: Subject, val name: String) : Observer(){
-
-    init {
-        this.subject = subject
-        subject.attach(this)
-    }
-
-    fun edrab(){
-        subject.setState("aaah!")
-    }
-
-    override fun update() {
-        println("$name heard ${subject.getState()}")
-    }
-
-
-}
-
-
+// 5) Usage
 fun main() {
-    val youssef = ElliFeha()
+    val newsPublisher = NewsPublisher()
 
-    val kareem  = Player(name = "kareem" , subject = youssef)
-    val nosa  = Player(name = "nosa" , subject = youssef)
-    val mohamed  = Player(name = "mohamed" , subject = youssef)
+    val readerA = NewsReader("Reader A")
+    val readerB = NewsReader("Reader B")
+    val readerC = NewsReader("Reader C")
 
-    kareem.edrab()
-    Thread.sleep(5000)
+    // Register observers
+    newsPublisher.registerObserver(readerA)
+    newsPublisher.registerObserver(readerB)
+    newsPublisher.registerObserver(readerC)
 
-
-    nosa.edrab()
-    Thread.sleep(5000)
-
-
-    mohamed.edrab()
-    Thread.sleep(5000)
-
-
-
-
-
+    // Publisher sets new data, automatically notifies observers
+    newsPublisher.setNews("Breaking News: Kotlin is awesome!")
+    newsPublisher.setNews("Breaking News: Kareem Loves his Wife")
 }
 
 
@@ -132,8 +105,12 @@ One of the most common examples of the Observer pattern is the Model-View-Contro
 
 
 
-
-
+/**
+ * The Observer pattern defines a one-to-many relationship between objects: when one object changes state,
+ * all its dependents are notified automatically. In Kotlin, you often see this behavior through
+ * things like LiveData, where observers automatically receive updates when the underlying data changes.
+ * */
+val ObserverPattern = "ObserverPattern"
 
 
 

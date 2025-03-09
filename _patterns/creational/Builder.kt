@@ -91,6 +91,7 @@ method to retrieve the final built object.
 for example I don't wanna to add a message in  alertDialog
 
 //client
+```kotlin
 fun showAlertDialog() {
 val alertDialog = AlertDialogBuilder()
 .setTitle("Alert!")
@@ -102,4 +103,7 @@ val alertDialog = AlertDialogBuilder()
 // Show the created AlertDialog
 alertDialog.show()
 }
+```
  * */
+
+val Builder = "Builder"
