@@ -1,20 +1,20 @@
-package _patterns.behavioral
+package _patterns.behavioral.observer
 
 // 1) Define an Observer interface
-interface Observer {
+interface NewsObserver {
     fun update(data: String)
 }
 
 // 2) Define a Subject interface (the “observable”)
-interface Subject {
-    fun registerObserver(observer: Observer)
-    fun removeObserver(observer: Observer)
+interface NewsSubject {
+    fun registerObserver(newsObserver: NewsObserver)
+    fun removeObserver(newsObserver: NewsObserver)
     fun notifyObservers()
 }
 
 // 3) A concrete Subject that holds data and notifies observers
-class NewsPublisher : Subject {
-    private val observers = mutableListOf<Observer>()
+class NewsPublisher : NewsSubject {
+    private val newsObservers = mutableListOf<NewsObserver>()
     private var latestNews: String = "No news yet"
 
     fun setNews(news: String) {
@@ -22,23 +22,23 @@ class NewsPublisher : Subject {
         notifyObservers()  // Whenever data changes, notify observers
     }
 
-    override fun registerObserver(observer: Observer) {
-        observers.add(observer)
+    override fun registerObserver(newsObserver: NewsObserver) {
+        newsObservers.add(newsObserver)
     }
 
-    override fun removeObserver(observer: Observer) {
-        observers.remove(observer)
+    override fun removeObserver(newsObserver: NewsObserver) {
+        newsObservers.remove(newsObserver)
     }
 
     override fun notifyObservers() {
-        observers.forEach { observer ->
+        newsObservers.forEach { observer ->
             observer.update(latestNews)
         }
     }
 }
 
 // 4) Concrete Observer
-class NewsReader(val name: String) : Observer {
+class NewsReader(val name: String) : NewsObserver {
     override fun update(data: String) {
         println("$name got the news update: $data")
     }

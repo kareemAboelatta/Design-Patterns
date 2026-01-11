@@ -1,4 +1,4 @@
-package _patterns.structural
+package _patterns.structural.proxy
 
 
 /**
